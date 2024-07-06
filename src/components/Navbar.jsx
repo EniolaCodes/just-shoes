@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CiSearch, CiShoppingCart } from "react-icons/ci";
-import { FcLike } from "react-icons/fc";
 import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
@@ -12,10 +10,10 @@ const Navbar = () => {
 		setIsOpen(!isOpen);
 	};
 	return (
-		<nav className="bg-[#000000] p-[24px] rounded-[16px]">
-			<div className="container mx-auto flex justify-between items-center">
+		<nav className="bg-[#000000] p-6 rounded-[16px] w-full">
+			<div className="flex justify-between items-center">
 				{/* logo */}
-				<img src="/src/assets/productLogo.png" alt="logo" />
+				<img src="/src/assets/productLogo (1).png" alt="Just Shoes" />
 				{/* navigation links */}
 				<ul className="hidden md:flex space-x-4 text-xl">
 					<li
@@ -24,9 +22,11 @@ const Navbar = () => {
 						}}
 						className="text-[#ffffff]"
 					>
-						<Link to="/home">Home</Link>
+						<Link to="/home" className="font-[outfit]">
+							Home
+						</Link>
 						{menu === "home" ? (
-							<hr className="underline w-[80%] h-[3px] border-none rounded-[10px] bg-[#ff4141] ml-2 mt-1" />
+							<hr className="underline w-[80%] h-[3px] border-none rounded-[10px] bg-[#ffffff] ml-2 mt-1" />
 						) : (
 							<></>
 						)}
@@ -37,9 +37,11 @@ const Navbar = () => {
 						}}
 						className="text-[#ffffff]"
 					>
-						<Link to="/shop">Shop</Link>
+						<Link to="/shop" className="font-[outfit]">
+							Shop
+						</Link>
 						{menu === "shop" ? (
-							<hr className="underline w-[80%] h-[3px] border-none rounded-[10px] bg-[#ff4141] ml-2 mt-1" />
+							<hr className="underline w-[80%] h-[3px] border-none rounded-[10px] bg-[#ffffff] ml-2 mt-1" />
 						) : (
 							<></>
 						)}
@@ -50,9 +52,11 @@ const Navbar = () => {
 						}}
 						className="text-[#ffffff] "
 					>
-						<Link to="/contact">Contact</Link>
+						<Link to="/contact" className="font-[outfit]">
+							Contact
+						</Link>
 						{menu === "contact" ? (
-							<hr className="underline w-[80%] h-[3px] border-none rounded-[10px] bg-[#ff4141] ml-2 mt-1" />
+							<hr className="underline w-[80%] h-[3px] border-none rounded-[10px] bg-[#ffffff] ml-2 mt-1" />
 						) : (
 							<></>
 						)}
@@ -60,14 +64,14 @@ const Navbar = () => {
 				</ul>
 				{/* icons */}
 				<div className="flex space-x-4 text-xl">
-					<Link to="/search" className="text-white">
-						<CiSearch />
+					<Link to="/search">
+						<img src="/src/assets/search.png" alt="Search icon" />
 					</Link>
 					<Link to="/cart" className="">
-						<FcLike className="text-white" />
+						<img src="/src/assets/iconBtn.png" alt="cart icon" />
 					</Link>
-					<Link to="/profile" className="text-white">
-						<CiShoppingCart />
+					<Link to="/profile" className="">
+						<img src="/src/assets/iconBtn (1).png" alt="like icon" />
 					</Link>
 				</div>
 				{/* mobile menu button */}
@@ -80,13 +84,19 @@ const Navbar = () => {
 				{isOpen && (
 					<ul className="md:flex space-x-4 text-xl">
 						<li className="text-[#ffffff] block px-2 py-1">
-							<Link to="/home">Home</Link>
+							<Link to="/home" className="font-[outfit]">
+								Home
+							</Link>
 						</li>
 						<li className="text-[#ffffff] block px-2 py-1">
-							<Link to="/shop">Shop</Link>
+							<Link to="/shop" className="font-[outfit]">
+								Shop
+							</Link>
 						</li>
 						<li className="text-[#ffffff] block px-2 py-1">
-							<Link to="/contact">Contact</Link>
+							<Link to="/contact" className="font-[outfit]">
+								Contact
+							</Link>
 						</li>
 					</ul>
 				)}

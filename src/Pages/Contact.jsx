@@ -1,11 +1,11 @@
 
-
 const Contact = () => {
-    return (
-        <div>
-            I am Conatct
-        </div>
-    );
+	return (
+		<>
+			
+			<h2>Conatact</h2>
+		</>
+	);
 };
 
 export default Contact;
