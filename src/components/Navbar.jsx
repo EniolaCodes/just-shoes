@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import productLogo from "../assets/productLogo (1).png";
+import cartIcon from "../assets/iconBtn.png";
+import searchIcon from "../assets/search.png";
+import likeIcon from "../assets/iconBtn (1).png"
+
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +18,7 @@ const Navbar = () => {
 		<nav className="bg-[#000000] p-6 rounded-[16px] w-full">
 			<div className="flex justify-between items-center">
 				{/* logo */}
-				<img src="/src/assets/productLogo (1).png" alt="Just Shoes" />
+				<img src={productLogo} alt="Just Shoes" />
 				{/* navigation links */}
 				<ul className="hidden md:flex space-x-4 text-xl">
 					<li
@@ -65,13 +70,13 @@ const Navbar = () => {
 				{/* icons */}
 				<div className="flex space-x-4 text-xl">
 					<Link to="/search">
-						<img src="/src/assets/search.png" alt="Search icon" />
+						<img src={searchIcon} alt="Search icon" />
 					</Link>
 					<Link to="/cart" className="">
-						<img src="/src/assets/iconBtn.png" alt="cart icon" />
+						<img src={cartIcon} alt="cart icon" />
 					</Link>
 					<Link to="/profile" className="">
-						<img src="/src/assets/iconBtn (1).png" alt="like icon" />
+						<img src={likeIcon} alt="like icon" />
 					</Link>
 				</div>
 				{/* mobile menu button */}
