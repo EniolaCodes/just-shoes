@@ -20,7 +20,7 @@ const ShoeDetail = () => {
 	return (
 		<div className="p-8 bg-gray-100 min-h-screen flex flex-col md:flex-row">
 			<div className="md:w-1/2 ">
-				<div className={`${shoe.color} p-4 rounded-3xl w-[386px] h-[572px]`}>
+				<div className={`${shoe.color}; p-4 rounded-3xl w-[386px] h-[572px]`}>
 					<div className="w-full h-auto flex flex-col justify-between">
 						<div>
 							<p className="text-[#ffffff] text-xs font-medium font-['outfit']">
