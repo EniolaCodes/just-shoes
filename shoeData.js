@@ -1,10 +1,10 @@
-import shoe1 from "../assets/shoe1.png";
-import shoe2 from "../assets/shoe2.png";
-import shoe3 from "../assets/shoe6.png";
-import shoe4 from "../assets/shoe4.png";
-import shoe5 from "../assets/shoe9.png";
-import shoe6 from "../assets/shoe12.png";
-import iconButton from "../assets/iconBtn (1).png";
+import shoe1 from "./src/assets/shoe1.png";
+import shoe2 from "./src/assets/shoe2.png";
+import shoe3 from "./src/assets/shoe6.png";
+import shoe4 from "./src/assets/shoe4.png";
+import shoe5 from "./src/assets/shoe9.png";
+import shoe6 from "./src/assets/shoe12.png";
+import iconButton from "./src/assets/iconBtn (1).png";
 
 const shoesData = [
 	{

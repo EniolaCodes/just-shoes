@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import shoesData from "../assets/shoeData";
+import shoesData from "../../shoeData";
 
 const Shop = () => {
 	// Arrange nonsequentially
@@ -27,19 +27,19 @@ const Shop = () => {
 			<div className="flex space-x-4">
 				{shoesData.map((shoe) => (
 					<Link key={shoe.id} to={`/shoe/${shoe.id}`}>
-						<div className="w-60 h-80 flex flex-col self-stretch justify-between items-center px-4 py-6">
+						<div className="w-[240px] h-[320px] flex flex-col self-stretch justify-between items-center px-4 py-6">
 							<div
 								className={`${shoe.color} p-4 rounded-3xl flex flex-col justify-between h-full`}
 							>
 								<div className="flex justify-between items-center">
 									<div className="flex flex-col gap-0">
-										<p className="text-[#ffffff] text-xs font-medium font-[outfit]">
+										<p className="text-[#ffffff] text-xs font-medium font-['outfit']">
 											{shoe.name}
 										</p>
-										<p className="text-[#ffffff] text-2xl font-medium font-[outfit]">
+										<p className="text-[#ffffff] text-2xl font-medium font-['outfit']">
 											{shoe.model}
 										</p>
-										<p className="text-[#ffffff] text-sm font-[outfit]">
+										<p className="text-[#ffffff] text-sm font-['outfit']">
 											{shoe.price}
 										</p>
 									</div>
@@ -48,7 +48,7 @@ const Shop = () => {
 									</div>
 								</div>
 
-								<div className="h-[275px] justify-end items-center">
+								<div className="justify-start items-center">
 									<img
 										src={shoe.img}
 										alt={shoe.name}
