@@ -1,6 +1,6 @@
 const Contact = () => {
 	return (
-		<div className="w-full max-w-[1230px] mx-auto p-8 flex flex-col items-center gap-8">
+		<div className="w-full max-w-[1300px] mx-auto p-8 flex flex-col items-center gap-8">
 			<div className="text-center">
 				<div className="text-black text-4xl md:text-[64px] font-medium mb-2">
 					Contact Us
@@ -14,16 +14,16 @@ const Contact = () => {
 						</label>
 						<input
 							type="text"
-							className="h-10 w-full border-2 border-neutral-400"
+							className="h-10 w-[300px] border-2 border-neutral-400 md:w-[400px]"
 						/>
 					</div>
-					<div className="h-20 flex flex-col gap-2">
+					<div className="h-20  flex flex-col gap-2">
 						<label className="text-neutral-400 text-lg md:text-2xl font-normal">
 							Your email
 						</label>
 						<input
 							type="email"
-							className="h-10 w-full border-2 border-neutral-400"
+							className="h-10 w-[300px] border-2 border-neutral-400 md:w-[400px]"
 						/>
 					</div>
 				</div>
