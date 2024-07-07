@@ -29,7 +29,7 @@ const Shop = () => {
 					<Link key={shoe.id} to={`/shoe/${shoe.id}`}>
 						<div className="w-[240px] h-[320px] flex flex-col self-stretch justify-between items-center px-4 py-6">
 							<div
-								className={`${shoe.color}; p-4 rounded-3xl flex flex-col justify-between h-full`}
+								className={`${shoe.color} p-4 rounded-3xl flex flex-col justify-between h-full`}
 							>
 								<div className="flex justify-between items-center">
 									<div className="flex flex-col gap-0">

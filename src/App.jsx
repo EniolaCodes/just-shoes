@@ -5,7 +5,7 @@ import Shop from "./Pages/Shop";
 import Contact from "./Pages/Contact";
 import ShoeDetail from "./Pages/ShoeDetail";
 import Cart from "./Pages/Cart";
-
+import Success from "./Pages/Success";
 
 const App = () => {
 	return (
@@ -17,6 +17,7 @@ const App = () => {
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/shoe/:id" element={<ShoeDetail />} />
 				<Route path="/cart" element={<Cart />} />
+				<Route path="/success" element={<Success />} />
 			</Routes>
 		</BrowserRouter>
 	);
