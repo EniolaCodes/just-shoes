@@ -52,12 +52,12 @@ const Navbar = () => {
 					</li>
 
 					<li onClick={() => setMenu("contact")} className="text-white">
-						<Link
-							to="/contact"
+						<a
+							href="/home#contact"
 							className="text-white text-xl font-medium font-['Outfit']"
 						>
 							Contact
-						</Link>
+						</a>
 
 						{menu === "contact" && (
 							<hr className="underline w-[80%] h-[3px] border-none rounded-[10px] bg-white ml-2 mt-1" />
@@ -106,7 +106,7 @@ const Navbar = () => {
 
 						<li className="text-white">
 							<Link
-								to="/contact"
+								to="/home"
 								className="text-white text-xl font-medium font-['Outfit']"
 							>
 								Contact

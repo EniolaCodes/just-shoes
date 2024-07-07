@@ -1,6 +1,9 @@
 const Contact = () => {
 	return (
-		<div className="w-full max-w-[1300px] mx-auto p-8 flex flex-col items-center gap-8">
+		<div
+			className="w-full max-w-[1300px] mx-auto p-8 flex flex-col items-center gap-8 mt-4"
+			id="contact"
+		>
 			<div className="text-center">
 				<div className="text-black text-4xl md:text-[64px] font-medium mb-2">
 					Contact Us

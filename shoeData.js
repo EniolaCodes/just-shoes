@@ -9,7 +9,7 @@ import iconButton from "./src/assets/iconBtn (1).png";
 const shoesData = [
 	{
 		id: 1,
-		color: "custom indigo",
+		color: "#735cff",
 		name: "Nike ",
 		model: "Airmax",
 		price: "N80,000",
@@ -18,7 +18,7 @@ const shoesData = [
 	},
 	{
 		id: 2,
-		color: "custom-neutral",
+		color: "#8f8f8f",
 		name: "Nike",
 		model: "Airmax",
 		price: "N80,000",
@@ -27,7 +27,7 @@ const shoesData = [
 	},
 	{
 		id: 3,
-		color: "custom-emerald",
+		color: "#36d199",
 		name: "Nike",
 		model: "Airmax",
 		price: "N80,000",
@@ -36,7 +36,7 @@ const shoesData = [
 	},
 	{
 		id: 4,
-		color: "custom-pink",
+		color: "#d45cff",
 		name: "Nike",
 		model: "Airmax",
 		price: "N80,000",
@@ -45,7 +45,7 @@ const shoesData = [
 	},
 	{
 		id: 5,
-		color: "custom-yellow",
+		color: "#e4e82d",
 		name: "Nike",
 		model: "Airmax",
 		price: "N80,000",
@@ -54,7 +54,7 @@ const shoesData = [
 	},
 	{
 		id: 6,
-		color: "bg-red-300",
+		color: "#ff9191",
 		name: "Nike",
 		model: "Airmax",
 		price: "N80,000",

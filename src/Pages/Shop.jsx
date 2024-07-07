@@ -12,7 +12,7 @@ const Shop = () => {
 		shoesData[2],
 	];
 	return (
-		<div className="bg-gray-100 min-h-screen space-y-8 -[1238px] h-[93px] p-6">
+		<div className="bg-red-500  bg-opacity-5 min-h-screen space-y-8 w-[100vw] p-6 overflow-hidden">
 			<div className="flex gap-6 items-center text-xl">
 				<div className="w-[59px] h-[45px] p-2 flex-col justify-center items-center gap-1 inline-flex">
 					<div className="text-black text-xl font-medium font-['Outfit']">
@@ -29,7 +29,8 @@ const Shop = () => {
 					<Link key={shoe.id} to={`/shoe/${shoe.id}`}>
 						<div className="w-[240px] h-[320px] flex flex-col self-stretch justify-between items-center px-4 py-6">
 							<div
-								className={`${shoe.color} p-4 rounded-3xl flex flex-col justify-between h-full`}
+								className="p-4 rounded-3xl flex flex-col justify-between h-full"
+								style={{ background: shoe.color }}
 							>
 								<div className="flex justify-between items-center">
 									<div className="flex flex-col gap-0">
@@ -78,7 +79,8 @@ const Shop = () => {
 					<Link key={shoe.id} to={`/shoe/${shoe.id}`}>
 						<div className="w-60 h-80 flex flex-col self-stretch justify-between items-center px-4 py-6">
 							<div
-								className={`${shoe.color} p-4 rounded-3xl flex flex-col justify-between h-full`}
+								className="p-4 rounded-3xl flex flex-col justify-between h-full"
+								style={{ background: shoe.color }}
 							>
 								<div className="flex justify-between items-center">
 									<div className="flex flex-col gap-0">
