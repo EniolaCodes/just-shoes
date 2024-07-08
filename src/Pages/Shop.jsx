@@ -12,7 +12,7 @@ const Shop = () => {
 		shoesData[2],
 	];
 	return (
-		<div className="bg-red-500  bg-opacity-5 min-h-screen space-y-8 w-[100vw] p-6 overflow-hidden">
+		<div className="bg-red-500  bg-opacity-5 min-h-screen space-y-8 w-[100vw] p-6">
 			<div className="flex gap-6 items-center text-xl">
 				<div className="w-[59px] h-[45px] p-2 flex-col justify-center items-center gap-1 inline-flex">
 					<div className="text-black text-xl font-medium font-['Outfit']">
@@ -24,7 +24,7 @@ const Shop = () => {
 				<h2 className="text-[#8f8f8f]">Recommended</h2>
 			</div>
 
-			<div className="flex space-x-4">
+			<div className="flex space-x-4 overflow-x-auto">
 				{shoesData.map((shoe) => (
 					<Link key={shoe.id} to={`/shoe/${shoe.id}`}>
 						<div className="w-[240px] h-[320px] flex flex-col self-stretch justify-between items-center px-4 py-6">
@@ -74,7 +74,7 @@ const Shop = () => {
 				<h2 className="text-[#8f8f8f]">Female</h2>
 			</div>
 
-			<div className="flex space-x-4">
+			<div className="flex space-x-4 overflow-x-auto">
 				{nonSequentialShoes.map((shoe) => (
 					<Link key={shoe.id} to={`/shoe/${shoe.id}`}>
 						<div className="w-60 h-80 flex flex-col self-stretch justify-between items-center px-4 py-6">

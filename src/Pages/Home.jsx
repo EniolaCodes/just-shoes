@@ -1,6 +1,7 @@
 import heroShoe from "../assets/shoe1.png";
 import Contact from "../components/Contact";
 import shadow from "../assets/shadow (1).png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 	return (
@@ -19,9 +20,9 @@ const Home = () => {
 							</div>
 						</div>
 						<div className="w-full md:w-[226px] h-16 pl-6 pr-4 py-5 bg-black rounded-2xl shadow flex justify-center items-center gap-2">
-							<div className="text-center text-white text-xl md:text-2xl font-medium font-['Inter']">
+							<Link to="/shop" className="text-center text-white text-xl md:text-2xl font-medium font-['Inter']">
 								Shop Now
-							</div>
+							</Link>
 						</div>
 					</div>
 					{/* image */}

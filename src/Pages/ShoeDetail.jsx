@@ -53,9 +53,8 @@ const ShoeDetail = () => {
 						</div>
 					</div>
 				</div>
-
 				<div className="mt-10 md:w-1/2 md:pl-8 md:mt-12">
-					<div className="flex justify-between gap-6">
+					<div className="flex justify-between gap-6 overflow-x-auto">
 						{relatedShoes.map((relatedShoe, index) => (
 							<div
 								key={index}
