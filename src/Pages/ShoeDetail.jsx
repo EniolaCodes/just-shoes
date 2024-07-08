@@ -19,7 +19,7 @@ const ShoeDetail = () => {
 		setSelectedSize(size);
 	};
 	return (
-		<div className="p-8 bg-indigo-500 bg-opacity-5">
+		<div className="p-8 bg-indigo-500 bg-opacity-5 lg:mt-10">
 			<div className="flex items-center mb-8">
 				<img src={backIcon} alt="back icon" className="mr-3" />
 				<h2 className="text-black text-[32px] font-medium font-['Outfit']">
@@ -30,7 +30,7 @@ const ShoeDetail = () => {
 			<div className=" min-h-screen flex flex-col md:flex-row">
 				<div className="md:w-1/2 ">
 					<div
-						className="p-4 rounded-3xl w-[386px] h-[572px]"
+						className="p-4 rounded-3xl md:w-[386px] h-[572px]"
 						style={{ background: shoe.color }}
 					>
 						<div className="w-full h-auto flex flex-col justify-between">
