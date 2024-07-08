@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
+import { FaBarsStaggered } from "react-icons/fa6";
 import productLogo from "../assets/productLogo (1).png";
 import cartIcon from "../assets/iconBtn.png";
 import searchIcon from "../assets/search.png";
@@ -65,7 +66,7 @@ const Navbar = () => {
 					</li>
 				</ul>
 				{/* icons */}
-				<div className="flex space-x-4 text-xl">
+				<div className="hidden md:flex space-x-4 text-xl">
 					<img src={searchIcon} alt="search icon" />
 					<Link to="/cart">
 						<img src={cartIcon} alt="cart icon" />
@@ -73,20 +74,21 @@ const Navbar = () => {
 					<img src={likeIcon} alt="Like icon" />
 				</div>
 				{/* mobile menu button */}
-				<div className="block md:hidden">
-					<button onClick={toggleMenu}>
-						<FaBars className="text-white" />
+				<div className="md:hidden relative">
+					<button onClick={toggleMenu} className="absolute right-2 -top-2">
+						{isOpen ? (
+							<FaTimes className="text-white text-2xl" />
+						) : (
+							<FaBarsStaggered className="text-white text-2xl" />
+						)}
 					</button>
 				</div>
 			</div>
 			{/* mobile menu */}
 			{isOpen && (
-				<div className=" flex-col items-center justify-center ">
-					<button onClick={closeMenu} className="absolute top-4 right-4">
-						<FaTimes className="text-white text-2xl" />
-					</button>
-					<ul className="space-y-4 text-xl text-center">
-						<li className="text-white">
+				<div className="   bg-black flex-col items-center justify-center">
+					<ul className="space-y-4 text-xl text-center mt-8">
+						<li onClick={closeMenu} className="text-white">
 							<Link
 								to="/home"
 								className="text-white text-xl font-medium font-['Outfit']"
@@ -95,7 +97,7 @@ const Navbar = () => {
 							</Link>
 						</li>
 
-						<li className="text-white">
+						<li onClick={closeMenu} className="text-white">
 							<Link
 								to="/shop"
 								className="text-white text-xl font-medium font-['Outfit']"
@@ -104,7 +106,7 @@ const Navbar = () => {
 							</Link>
 						</li>
 
-						<li className="text-white">
+						<li onClick={closeMenu} className="text-white">
 							<Link
 								to="/home"
 								className="text-white text-xl font-medium font-['Outfit']"
