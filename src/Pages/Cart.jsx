@@ -13,6 +13,7 @@ import {
 const Cart = () => {
 	const dispatch = useDispatch();
 	const cartItems = useSelector((cart) => cart.cart.cart);
+	console.log(cartItems);
 
 	return (
 		<div className="flex flex-col lg:flex-row min-h-screen">
@@ -30,8 +31,8 @@ const Cart = () => {
 						>
 							<div className="w-1/3 h-36 bg-gray-400 rounded-3xl mr-4 flex-shrink-0 flex items-center justify-center">
 								<img
-									// src={item.img}
-									// src={`https://api.timbu.cloud/images/${item.photos[0].url}`}
+									src={item.img}
+									// src={`https://api.timbu.cloud/images/${item.photos.url}`}
 									alt={item.name}
 									className="w-full h-full object-cover rounded-3xl"
 								/>
@@ -59,7 +60,7 @@ const Cart = () => {
 							<div className="flex items-end">
 								<button
 									onClick={() => dispatch(deleteItem(item.id))}
-									className="bg-red-400 text-white py-1 px-2 rounded ml-2"
+									className="bg-red-400 text-white py-1 px-2 rounded"
 								>
 									Remove
 								</button>
