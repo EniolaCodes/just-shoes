@@ -1,22 +1,31 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../lib/axiosInstance";
-import { useCart } from "../context/cartContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../cartSlice";
 import { FaPlus } from "react-icons/fa";
 import cartIcon from "../assets/iconBtn.png";
 import backIcon from "../assets/iconOutlined (2).png";
 
 const ShoeDetail = () => {
 	const navigate = useNavigate();
-	// const [count, setCount] = useState(1);
-	// const [selectedSize, setSelectedSize] = useState("");
 	const { id } = useParams(); // Get the product ID from the URL
 	const [product, setProduct] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const dispatch = useDispatch();
 
-	const handleSizeSelect = (size) => {
-		setSelectedSize(size);
+	const handleCart = () => {
+		const newItem = {
+			id,
+			name,
+			image: product.photos[0].url,
+			quantity: 1,
+			unitPrice: product.current_price,
+			totalPrice: product.current_price * 1,
+		};
+		dispatch(addItem(newItem));
+		navigate("/cart");
 	};
 
 	useEffect(() => {
@@ -109,31 +118,13 @@ const ShoeDetail = () => {
 							</p>
 						</div>
 					</div>
-					{/* <div className="mt-8 w-full max-w-sm">
-						<h2 className="text-2xl font-bold mb-4">Select Size</h2>
-						<div className="flex space-x-4 font-medium">
-							{["SM", "MD", "LG", "XL", "XXL"].map((size) => (
-								<button
-									key={size}
-									onClick={() => handleSizeSelect(size)}
-									className={`w-12 h-12 rounded-[84.65px]  border-2 ${
-										selectedSize === size
-											? "bg-black text-white"
-											: "bg-white text-black"
-									} transition duration-300`}
-								>
-									{size}
-								</button>
-							))}
-						</div>
-					</div> */}
+
 					<div className="flex items-center space-x-8 mt-16">
 						<button className="bg-[#ffffff] rounded-full text-[10.16px] w-[76px] h-[76px] p-[19px] text-center">
 							<FaPlus className="w-[38px] h-[38px] " />
 						</button>
 						<button
-							// onClick={() => navigate("/cart")}
-							onClick={() => dispatch({ type: "ADD_TO_CART", product })}
+							onClick={handleCart}
 							className="bg-[#000000]  text-[10.16px] w-[76px] h-[76px] p-[19px]  rounded-full shadow-lg hover:opacity-95 duration-300 flex items-center justify-center"
 						>
 							<img

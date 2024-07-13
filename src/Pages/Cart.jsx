@@ -1,69 +1,45 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../context/cartContext";
+import { useSelector, useDispatch } from "react-redux";
 import backIcon from "../assets/iconOutlined (2).png";
 import checkIcon from "../assets/iconOutlined.png";
 import boxIcon from "../assets/iconOutlined (1).png";
+import {
+	decreaseItemQuantity,
+	deleteItem,
+	increaseItemQuantity,
+	clearCart,
+} from "../cartSlice";
 
 const Cart = () => {
-	const { cart, dispatch } = useCart();
+	const dispatch = useDispatch();
+	const cartItems = useSelector((cart) => cart.cart.cart);
 
-	const totalPrice = cart.reduce(
-		(total, item) => total + item.price * item.quantity,
-		0
-	);
-
-
-	
 	return (
 		<div className="flex flex-col lg:flex-row min-h-screen">
 			{/* Left Side */}
 			<div className="p-8 bg-indigo-500 bg-opacity-5 w-full lg:w-3/5">
 				<div className="flex items-center mb-8">
 					<img src={backIcon} alt="back icon" className="mr-3" />
-
 					<h1 className="text-2xl font-medium">Shopping Cart</h1>
-					<span className="ml-2 bg-red-500 text-white rounded-full px-3 py-1 text-sm font-medium">
-						{cartItems.length}
-					</span>
 				</div>
-
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
 					{cartItems.map((item) => (
 						<div
 							key={item.id}
 							className="bg-white p-4 rounded-xl shadow-lg flex relative"
 						>
-							<button
-								onClick={() => handleRemoveItem(item.id)}
-								className="absolute top-2 right-2 text-[#8f8f8f]"
-							>
-								&times;
-							</button>
 							<div className="w-1/3 h-36 bg-gray-400 rounded-3xl mr-4 flex-shrink-0 flex items-center justify-center">
 								<img
-									src={item.img}
+									// src={item.img}
+									// src={`https://api.timbu.cloud/images/${item.photos[0].url}`}
 									alt={item.name}
 									className="w-full h-full object-cover rounded-3xl"
 								/>
 							</div>
 							<div className="flex-1 flex flex-col justify-between">
-								<div>
-									<h3 className="text-neutral-400 text-xs font-medium font-['Outfit']">
-										{item.name}
-									</h3>
-									<p className="text-black text-2xl font-medium font-['Outfit']">
-										{item.model}
-									</p>
-									<p className="text-black text-xs font-bold font-['Lemonada']">
-										{item.price} * {item.quantity}
-									</p>
-								</div>
 								<div className="flex items-center mt-4">
 									<button
-										onClick={() =>
-											dispatch({ type: "DECREASE_QUANTITY", id: item.id })
-										}
+										onClick={() => dispatch(decreaseItemQuantity(item.id))}
 										className="text-neutal-600 rounded-[84.65px] bg-zinc-300 p-2 shadow-md hover:bg-zinc-400 transition duration-300"
 									>
 										-
@@ -73,22 +49,20 @@ const Cart = () => {
 										{item.quantity}
 									</p>
 									<button
-										onClick={() =>
-											dispatch({ type: "INCREASE_QUANTITY", id: item.id })
-										}
+										onClick={() => dispatch(increaseItemQuantity(item.id))}
 										className="bg-indigo-300 text-white font-medium text-base p-2 rounded-[84.75px] shadow-md hover:bg-indigo-400 transition duration-300"
 									>
 										+
 									</button>
-									<button
-										onClick={() =>
-											dispatch({ type: "REMOVE_FROM_CART", id: item.id })
-										}
-										className="bg-red-500 text-white py-1 px-2 rounded ml-2"
-									>
-										Remove
-									</button>
 								</div>
+							</div>
+							<div className="flex items-end">
+								<button
+									onClick={() => dispatch(deleteItem(item.id))}
+									className="bg-red-400 text-white py-1 px-2 rounded ml-2"
+								>
+									Remove
+								</button>
 							</div>
 						</div>
 					))}
@@ -105,9 +79,7 @@ const Cart = () => {
 							</p>
 						</div>
 
-						<p className="text-black text-xl font-medium font-['outfit'] leading-10">
-							{totalPrice.toFixed(2)}
-						</p>
+						<p className="text-black text-xl font-medium font-['outfit'] leading-10"></p>
 					</div>
 					<div className="flex justify-between items-center">
 						<div className="flex gap-4">
@@ -143,10 +115,10 @@ const Cart = () => {
 					</div>
 					<div>
 						<button
-							onClick={() => dispatch({ type: "CLEAR_CART" })}
-							className="bg-red-500 text-white py-2 px-4 rounded mt-4"
+							onClick={() => dispatch(clearCart())}
+							className="bg-neutral-500 text-white text-xl py-4 px-8 rounded mt-8"
 						>
-							Clear Cart
+							Clear
 						</button>
 					</div>
 				</div>
