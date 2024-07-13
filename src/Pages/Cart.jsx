@@ -1,31 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import shoeData from "../../shoeData";
+import { useCart } from "../context/cartContext";
 import backIcon from "../assets/iconOutlined (2).png";
 import checkIcon from "../assets/iconOutlined.png";
 import boxIcon from "../assets/iconOutlined (1).png";
 
 const Cart = () => {
-	const [cartItems, setCartItems] = useState([
-		{ ...shoeData[0], quantity: 1 },
-		{ ...shoeData[1], quantity: 1 },
-		{ ...shoeData[2], quantity: 1 },
-		{ ...shoeData[3], quantity: 1 },
-	]);
+	const { cart, dispatch } = useCart();
 
-	const handleQuantityChange = (id, delta) => {
-		setCartItems((prevItems) =>
-			prevItems.map((item) =>
-				item.id === id && item.quantity + delta > 0
-					? { ...item, quantity: item.quantity + delta }
-					: item
-			)
-		);
-	};
+	const totalPrice = cart.reduce(
+		(total, item) => total + item.price * item.quantity,
+		0
+	);
 
-	const handleRemoveItem = (id) => {
-		setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-	};
+
+	
 	return (
 		<div className="flex flex-col lg:flex-row min-h-screen">
 			{/* Left Side */}
@@ -67,12 +56,14 @@ const Cart = () => {
 										{item.model}
 									</p>
 									<p className="text-black text-xs font-bold font-['Lemonada']">
-										{item.price}
+										{item.price} * {item.quantity}
 									</p>
 								</div>
 								<div className="flex items-center mt-4">
 									<button
-										onClick={() => handleQuantityChange(item.id, -1)}
+										onClick={() =>
+											dispatch({ type: "DECREASE_QUANTITY", id: item.id })
+										}
 										className="text-neutal-600 rounded-[84.65px] bg-zinc-300 p-2 shadow-md hover:bg-zinc-400 transition duration-300"
 									>
 										-
@@ -82,10 +73,20 @@ const Cart = () => {
 										{item.quantity}
 									</p>
 									<button
-										onClick={() => handleQuantityChange(item.id, 1)}
+										onClick={() =>
+											dispatch({ type: "INCREASE_QUANTITY", id: item.id })
+										}
 										className="bg-indigo-300 text-white font-medium text-base p-2 rounded-[84.75px] shadow-md hover:bg-indigo-400 transition duration-300"
 									>
 										+
+									</button>
+									<button
+										onClick={() =>
+											dispatch({ type: "REMOVE_FROM_CART", id: item.id })
+										}
+										className="bg-red-500 text-white py-1 px-2 rounded ml-2"
+									>
+										Remove
 									</button>
 								</div>
 							</div>
@@ -105,7 +106,7 @@ const Cart = () => {
 						</div>
 
 						<p className="text-black text-xl font-medium font-['outfit'] leading-10">
-							N60,000
+							{totalPrice.toFixed(2)}
 						</p>
 					</div>
 					<div className="flex justify-between items-center">
@@ -139,6 +140,14 @@ const Cart = () => {
 						<p className="text-black text-2xl font-extrabold font-['outfit'] leading-10">
 							N60,999
 						</p>
+					</div>
+					<div>
+						<button
+							onClick={() => dispatch({ type: "CLEAR_CART" })}
+							className="bg-red-500 text-white py-2 px-4 rounded mt-4"
+						>
+							Clear Cart
+						</button>
 					</div>
 				</div>
 			</div>
